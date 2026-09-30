@@ -1,5 +1,9 @@
 # Changelog
 
+## c64 v1.2.0 — 2026-09-30
+
+- The `c64` agent weighs formats and memory maps by their bytes: per-record overhead, fixed-size entries and duplicate representations, every VIC-II bank and the RAM under the ROMs and I/O, and a measured cost before a design rests on it
+
 ## c64 v1.1.0 — 2026-09-23
 
 - `llvm-mos.md`: on zig-mos 0.17, a callee holding inline assembly moves its callers onto the soft stack; a measured case where that cost more than the faster loops saved
