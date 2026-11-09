@@ -37,6 +37,10 @@ Shared registers:
 | `$D41B` | Oscillator 3 output | Read-only; the upper 8 bits of voice 3's waveform |
 | `$D41C` | Envelope 3 output | Read-only |
 
+### Paddle conversion time
+
+`$D419` and `$D41A` read the pot lines of the port pair that bits 7–6 of `$DC00` select (`cia.md` section 5). The chip converts the pots continuously: the MOS 6581 datasheet says of POT X and POT Y that "the value is always valid and is updated every 512 Ø2 clock cycles" (transcribed at https://www.bellesondes.fr/wiki/doku.php?id=mos6581, "Miscellaneous", POT X, POT Y). The datasheet gives the period of an update, not what an update measures, so a program that changes the selection treats the first update after the change as possibly holding a conversion that began before it: a reading is trustworthy after two update periods, 1,024 cycles, with only the one pair selected and no other store to `$DC00` that changes bits 7–6 in between. (The 1,024 figure is an inference from the datasheet's 512; the datasheet does not state it.) A frame that scans the keyboard or joysticks, which write `$DC00`, reads the pots before its first scan and selects the pair again after its last, so the next read is a picture away.
+
 ## 2. Reading SID registers
 
 Every register below `$D419` is write-only. A read returns stale data from the chip's bus, not the register's contents. Code that changes one bit at a time, such as toggling a gate bit, keeps a copy of the register in RAM and writes the whole copy. `inc` or `ora` applied to a SID register writes garbage.

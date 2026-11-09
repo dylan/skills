@@ -13,6 +13,7 @@
 ## c64 v1.2.1 — 2026-11-09
 
 - `c64-hardware` locates its references next to the skill, so it works when installed with `npx skills`
+- `sid.md`: paddle conversion time; the 6581 datasheet's 512-cycle pot update, and a 1,024-cycle wait before trusting a reading after changing the `$DC00` pot selection
 
 ## rigor v1.0.0 — 2026-11-09
 
