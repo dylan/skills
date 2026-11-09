@@ -4,7 +4,11 @@
 
 - Every skill also installs into Codex, Cursor and other agents with `npx skills add dylan/claude`; each marketplace entry lists its skills so the `skills` CLI groups them by plugin
 - The README covers both ways to install and says which parts stay Claude Code only
-- Removed the `map` and `gpu-expert` plugins
+- Removed the `map`, `gpu-expert` and `interface-design-expert` plugins
+
+## c64 v1.2.2 — 2026-11-09
+
+- `c64-hardware` quotes its description, so `npx skills` no longer skips it with a YAML parse error
 
 ## nato-name v1.0.1 — 2026-11-09
 

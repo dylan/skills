@@ -1,6 +1,6 @@
 ---
 name: c64-hardware
-description: Commodore 64 reference with exact numbers: 6510 opcodes and cycle counts, VIC-II registers and raster timing, raster interrupts, CIA, SID, the memory map and KERNAL vectors, llvm-mos and zig-mos, plus code patterns, measured routines (crunchers, loaders, multiply, random numbers, sorting) and modern test and build tools. Use it whenever you write, review, plan or debug C64 or 6502 code in any assembler or compiler, or answer a question about a C64 address, register, cycle count or timing.
+description: 'Commodore 64 reference with exact numbers: 6510 opcodes and cycle counts, VIC-II registers and raster timing, raster interrupts, CIA, SID, the memory map and KERNAL vectors, llvm-mos and zig-mos, plus code patterns, measured routines (crunchers, loaders, multiply, random numbers, sorting) and modern test and build tools. Use it whenever you write, review, plan or debug C64 or 6502 code in any assembler or compiler, or answer a question about a C64 address, register, cycle count or timing.'
 ---
 
 # Commodore 64 hardware reference
