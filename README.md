@@ -1,4 +1,4 @@
-# claude
+# skills
 
 Plugins and agent skills by Dylan. Each plugin installs into Claude Code from this marketplace, and its skills also install into Codex, Cursor and the other coding agents that the [`skills` CLI](https://github.com/vercel-labs/skills) supports.
 
@@ -7,14 +7,14 @@ Plugins and agent skills by Dylan. Each plugin installs into Claude Code from th
 In Claude Code, add the marketplace once, then install plugins by name:
 
 ```sh
-/plugin marketplace add dylan/claude
+/plugin marketplace add dylan/skills
 /plugin install rigor@dylan
 ```
 
 In any agent, install skills with `npx skills`. Name a skill with `--skill`, or leave it out to pick from a list:
 
 ```sh
-npx skills add dylan/claude --skill deepen
+npx skills add dylan/skills --skill deepen
 ```
 
 The `skills` CLI installs skills only. A plugin's agents stay in the Claude Code version, and each section below says when a plugin depends on one.
@@ -25,7 +25,7 @@ Swift API Design Guidelines enforcer — active whenever you're writing, reviewi
 
 ```sh
 /plugin install swift-api-design@dylan    # Claude Code
-npx skills add dylan/claude --skill swift-api-design    # any agent
+npx skills add dylan/skills --skill swift-api-design    # any agent
 ```
 
 Enforces the [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/) at every scope level — public APIs, internal helpers, local functions, closures, tuple members. Calls out violations with the specific guideline broken and a concrete rewrite. No hedging.
@@ -45,7 +45,7 @@ Placeholder project namer — picks an unused NATO reporting name so you can sta
 
 ```sh
 /plugin install nato-name@dylan    # Claude Code
-npx skills add dylan/claude --skill nato-name    # any agent
+npx skills add dylan/skills --skill nato-name    # any agent
 ```
 
 **`/nato-name` skill** — Lists every NATO reporting name (Flanker, Akula, Atoll, Kitchen, ...) not already used in the current directory and offers the first one. The list is alphabetical, so A-names go first and the letter advances as you use them up. Ask for a letter to filter.
@@ -56,7 +56,7 @@ Commodore 64 demoscene optimizer and hardware reference, for any C64 project and
 
 ```sh
 /plugin install c64@dylan    # Claude Code
-npx skills add dylan/claude --skill c64-hardware    # any agent
+npx skills add dylan/skills --skill c64-hardware    # any agent
 ```
 
 **`c64` agent** (Claude Code plugin only) — Plans and reviews 6502/6510 code the way a demo group reviews a routine before the party deadline. Before you write a hot routine, a raster or interrupt scheme, a memory map or an effect, it chooses the approach within a cycle and byte budget. After a change, it reviews the code for cycle counts, raster timing, memory layout and real-hardware resilience, and returns findings with concrete rewrites. It learns each project's toolchain and memory map from the project's own briefing, and it is read-only.
@@ -81,9 +81,9 @@ Holds tasks and their results to a professional's standard. Before the work, `/d
 
 ```sh
 /plugin install rigor@dylan    # Claude Code
-npx skills add dylan/claude --skill deepen    # any agent
-npx skills add dylan/claude --skill narrow    # any agent
-npx skills add dylan/claude --skill prove    # any agent
+npx skills add dylan/skills --skill deepen    # any agent
+npx skills add dylan/skills --skill narrow    # any agent
+npx skills add dylan/skills --skill prove    # any agent
 ```
 
 **`/deepen` skill** — Rewrites a prompt so the work goes deeper without growing. It names the professional whose standards apply and answers four questions as that person: what they would do that the prompt doesn't ask for, the rawest material they would start from, the methods and tools they would use, and a check outside you and Claude that would show the result is right. It then rewrites the prompt to ask for exactly that, and offers to run it.

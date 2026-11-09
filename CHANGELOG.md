@@ -2,7 +2,7 @@
 
 ## Marketplace — 2026-11-09
 
-- Every skill also installs into Codex, Cursor and other agents with `npx skills add dylan/claude`; each marketplace entry lists its skills so the `skills` CLI groups them by plugin
+- Every skill also installs into Codex, Cursor and other agents with `npx skills add dylan/skills`; each marketplace entry lists its skills so the `skills` CLI groups them by plugin
 - The README covers both ways to install and says which parts stay Claude Code only
 - Removed the `map`, `gpu-expert` and `interface-design-expert` plugins
 

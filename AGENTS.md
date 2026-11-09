@@ -1,6 +1,6 @@
-# dylan/claude
+# dylan/skills
 
-A public marketplace of Claude Code plugins, named `dylan`. Users install a plugin as `<plugin-name>@dylan`, or install its skills alone with `npx skills add dylan/claude`. The plugins are listed in `.claude-plugin/marketplace.json` and documented in `README.md`.
+A public marketplace of Claude Code plugins, named `dylan`. Users install a plugin as `<plugin-name>@dylan`, or install its skills alone with `npx skills add dylan/skills`. The plugins are listed in `.claude-plugin/marketplace.json` and documented in `README.md`.
 
 ## Layout
 
