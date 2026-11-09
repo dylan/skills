@@ -1,0 +1,9 @@
+{
+  "name": "rigor",
+  "description": "Holds tasks and results to a professional's standard. /deepen rewrites a prompt around what a top professional would do, the raw material they would start from, their methods and an outside check; /narrow cuts a prompt to the question that matters; /prove finds and runs the check that could show a result is wrong.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Dylan"
+  },
+  "keywords": ["prompting", "prompt-rewrite", "expertise", "primary-sources", "verification", "scope", "rigor"]
+}

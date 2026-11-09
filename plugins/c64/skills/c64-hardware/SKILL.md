@@ -11,7 +11,7 @@ This skill holds the machine's facts (addresses, bit layouts, cycle counts, timi
 
 Find the file for the question in the index, then read the section it names. Each file starts with a table of contents. The files are Markdown tables and short notes, so `grep -n` for an address or mnemonic finds its row. When you cite a number, name the chip or video standard it applies to. PAL and NTSC differ in cycles per line, lines per frame, clock speed and music pitch, and chip revisions differ in timing details.
 
-The files are in `${CLAUDE_SKILL_DIR}/references/`.
+The files are in this skill's `references/` directory, next to this file. Claude Code exposes the skill's directory as `${CLAUDE_SKILL_DIR}`.
 
 ## Index
 

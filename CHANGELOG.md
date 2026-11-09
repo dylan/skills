@@ -1,5 +1,26 @@
 # Changelog
 
+## Marketplace — 2026-11-09
+
+- Every skill also installs into Codex, Cursor and other agents with `npx skills add dylan/claude`; each marketplace entry lists its skills so the `skills` CLI groups them by plugin
+- The README covers both ways to install and says which parts stay Claude Code only
+- Removed the `map` and `gpu-expert` plugins
+
+## nato-name v1.0.1 — 2026-11-09
+
+- Finds `names.txt` next to the skill instead of through `${CLAUDE_PLUGIN_ROOT}`, which only exists inside a Claude Code plugin
+
+## c64 v1.2.1 — 2026-11-09
+
+- `c64-hardware` locates its references next to the skill, so it works when installed with `npx skills`
+
+## rigor v1.0.0 — 2026-11-09
+
+- **New plugin:** holds tasks and results to a professional's standard
+- `/deepen` rewrites a prompt around four answers: what a top professional would do that the prompt leaves out, the raw material they would start from, their methods and tools, and a check outside the model and the user
+- `/narrow` cuts a prompt to its real question and the smallest result that settles it, and lists every deferred part
+- `/prove` splits a result into testable claims, writes each pass condition before running its check, and reports passed, failed or unverified with evidence
+
 ## c64 v1.2.0 — 2026-09-30
 
 - The `c64` agent weighs formats and memory maps by their bytes: per-record overhead, fixed-size entries and duplicate representations, every VIC-II bank and the RAM under the ROMs and I/O, and a measured cost before a design rests on it

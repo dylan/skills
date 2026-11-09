@@ -3,30 +3,14 @@
   "owner": {
     "name": "Dylan"
   },
+  "metadata": {
+    "description": "Plugins and agent skills by Dylan, installable as Claude Code plugins or into any agent with npx skills."
+  },
   "plugins": [
-    {
-      "name": "map",
-      "source": "./plugins/map",
-      "description": "Codebase architecture generator. Creates docs/codebase-architecture.md and .claude/CLAUDE.md by exploring source and asking targeted questions.",
-      "version": "1.1.1",
-      "author": {
-        "name": "Dylan"
-      },
-      "keywords": ["architecture", "documentation", "onboarding", "codebase-map"]
-    },
-    {
-      "name": "gpu-expert",
-      "source": "./plugins/gpu-expert",
-      "description": "GPU and Metal expert consultant. Researches topics, reviews shader and Metal code, and maintains a NotebookLM knowledge base — all through the lens of Apple Silicon.",
-      "version": "1.0.0",
-      "author": {
-        "name": "Dylan"
-      },
-      "keywords": ["gpu", "metal", "shader", "apple-silicon", "msl", "compute", "graphics"]
-    },
     {
       "name": "swift-api-design",
       "source": "./plugins/swift-api-design",
+      "skills": ["./skills/swift-api-design"],
       "description": "Swift API Design Guidelines enforcer. Active whenever writing, reviewing, or designing Swift code — calls out naming, argument label, fluency, and convention violations with specific rewrites.",
       "version": "1.1.0",
       "author": {
@@ -37,6 +21,7 @@
     {
       "name": "interface-design-expert",
       "source": "./plugins/interface-design-expert",
+      "skills": ["./skills/interface-design-expert"],
       "description": "General-purpose interface design and review expert. Designs or critiques any UI — web, native desktop, mobile, games, terminal/TUI, voice — across nine design dimensions grounded in cognitive & perceptual foundations, with explicit floors-vs-dials tradeoff reasoning. Built to hand off to review agents, one lens per agent.",
       "version": "2.0.0",
       "author": {
@@ -47,8 +32,9 @@
     {
       "name": "nato-name",
       "source": "./plugins/nato-name",
+      "skills": ["./skills/nato-name"],
       "description": "Placeholder project namer. Picks an unused NATO reporting name (Flanker, Akula, Atoll, ...) and checks the current directory so the name isn't already taken.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Dylan"
       },
@@ -57,12 +43,24 @@
     {
       "name": "c64",
       "source": "./plugins/c64",
+      "skills": ["./skills/c64-hardware"],
       "description": "Commodore 64 demoscene optimizer and hardware reference. The c64 agent plans and reviews 6502/6510 code for cycle counts, raster timing and memory layout on any toolchain; the c64-hardware skill holds exact opcode, VIC-II, CIA, SID and memory-map facts, interrupt patterns, measured algorithms and modern tooling.",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "author": {
         "name": "Dylan"
       },
       "keywords": ["c64", "commodore-64", "6502", "6510", "assembly", "demoscene", "retro", "vic-ii", "sid", "optimization"]
+    },
+    {
+      "name": "rigor",
+      "source": "./plugins/rigor",
+      "skills": ["./skills/deepen", "./skills/narrow", "./skills/prove"],
+      "description": "Holds tasks and results to a professional's standard. /deepen rewrites a prompt around what a top professional would do, the raw material they would start from, their methods and an outside check; /narrow cuts a prompt to the question that matters; /prove finds and runs the check that could show a result is wrong.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Dylan"
+      },
+      "keywords": ["prompting", "prompt-rewrite", "expertise", "primary-sources", "verification", "scope", "rigor"]
     }
   ]
 }
