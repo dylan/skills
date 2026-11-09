@@ -1,4 +1,4 @@
-# skills
+# dylan/skills
 
 Plugins and agent skills by Dylan. Each plugin installs into Claude Code from this marketplace, and its skills also install into Codex, Cursor and the other coding agents that the [`skills` CLI](https://github.com/vercel-labs/skills) supports.
 
@@ -21,47 +21,46 @@ The `skills` CLI installs skills only. A plugin's agents stay in the Claude Code
 
 ## swift-api-design
 
-Swift API Design Guidelines enforcer — active whenever you're writing, reviewing, or designing Swift code.
+Enforces the [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/) whenever you write, review or design Swift code.
 
 ```sh
 /plugin install swift-api-design@dylan    # Claude Code
 npx skills add dylan/skills --skill swift-api-design    # any agent
 ```
 
-Enforces the [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/) at every scope level — public APIs, internal helpers, local functions, closures, tuple members. Calls out violations with the specific guideline broken and a concrete rewrite. No hedging.
+The skill applies the guidelines at every scope, from public APIs down to internal helpers, local functions, closures and tuple members. For each violation, it names the guideline broken and gives a concrete rewrite, without hedging. It checks:
 
-**What it covers:**
-- Naming: clarity at the call site, role vs. type names, fluency, Boolean readability
-- Argument labels: prepositional phrases, grammatical phrases, value-preserving conversions
-- Conventions: casing, factory methods, mutating/nonmutating pairs, protocol naming
-- Documentation: presence and quality of doc comments
-- Overloads: ambiguous overload sets with `Any` or unconstrained generics
+- Naming: clarity at the call site, names that state a role instead of a type, fluent call sites, and Boolean names that read as assertions.
+- Argument labels: prepositional and grammatical phrases, and the dropped first label on value-preserving conversions.
+- Conventions: casing, factory methods, mutating and nonmutating pairs, and protocol names.
+- Documentation: whether doc comments exist and say enough.
+- Overloads: ambiguous overload sets involving `Any` or unconstrained generics.
 
-**What it doesn't cover:** Protocol-oriented design choices, generics architecture, performance, memory management. Guidelines scope only.
+The skill stays within the guidelines, so it doesn't judge protocol-oriented design, generics architecture, performance or memory management.
 
 ## nato-name
 
-Placeholder project namer — picks an unused NATO reporting name so you can start building before you've named the thing.
+Picks an unused NATO reporting name as a placeholder project name, so you can start building before you've named the thing.
 
 ```sh
 /plugin install nato-name@dylan    # Claude Code
 npx skills add dylan/skills --skill nato-name    # any agent
 ```
 
-**`/nato-name` skill** — Lists every NATO reporting name (Flanker, Akula, Atoll, Kitchen, ...) not already used in the current directory and offers the first one. The list is alphabetical, so A-names go first and the letter advances as you use them up. Ask for a letter to filter.
+The `/nato-name` skill lists every NATO reporting name (Flanker, Akula, Atoll, Kitchen and so on) that the current directory doesn't already use, and offers the first one. Because the list is alphabetical, it offers A-names first and moves to the next letter as you use them up. Ask for a letter to filter the list.
 
 ## c64
 
-Commodore 64 demoscene optimizer and hardware reference, for any C64 project and toolchain: hand-written assembly (ca65, ACME, KickAssembler, 64tass, DASM), C through cc65 or llvm-mos, or Zig through zig-mos.
+A Commodore 64 demoscene optimizer and hardware reference for any C64 project and toolchain: hand-written assembly (ca65, ACME, KickAssembler, 64tass, DASM), C through cc65 or llvm-mos, or Zig through zig-mos.
 
 ```sh
 /plugin install c64@dylan    # Claude Code
 npx skills add dylan/skills --skill c64-hardware    # any agent
 ```
 
-**`c64` agent** (Claude Code plugin only) — Plans and reviews 6502/6510 code the way a demo group reviews a routine before the party deadline. Before you write a hot routine, a raster or interrupt scheme, a memory map or an effect, it chooses the approach within a cycle and byte budget. After a change, it reviews the code for cycle counts, raster timing, memory layout and real-hardware resilience, and returns findings with concrete rewrites. It learns each project's toolchain and memory map from the project's own briefing, and it is read-only.
+The `c64` agent, which comes only with the Claude Code plugin, plans and reviews 6502/6510 code the way a demo group reviews a routine before the party deadline. Before you write a hot routine, a raster or interrupt scheme, a memory map or an effect, it picks the approach that fits a cycle and byte budget. After a change, it reviews cycle counts, raster timing, memory layout and how the code holds up on real hardware, and returns findings with concrete rewrites. It reads each project's toolchain and memory map from the project's own briefing, and it never edits files.
 
-**`c64-hardware` skill** — Exact numbers instead of recalled ones, preloaded by the agent and available to any session. `npx skills` installs this skill without the agent:
+The `c64-hardware` skill gives exact numbers instead of recalled ones. The agent preloads it, any session can use it, and `npx skills` installs it without the agent. It holds these references:
 
 | Reference | Covers |
 |-----------|--------|
@@ -86,8 +85,8 @@ npx skills add dylan/skills --skill narrow    # any agent
 npx skills add dylan/skills --skill prove    # any agent
 ```
 
-**`/deepen` skill** — Rewrites a prompt so the work goes deeper without growing. It names the professional whose standards apply and answers four questions as that person: what they would do that the prompt doesn't ask for, the rawest material they would start from, the methods and tools they would use, and a check outside you and Claude that would show the result is right. It then rewrites the prompt to ask for exactly that, and offers to run it.
+The `/deepen` skill rewrites a prompt so the work goes deeper without growing. It names the professional whose standards apply and answers four questions as that person: what they would do that the prompt doesn't ask for, the rawest material they would start from, the methods and tools they would use, and a check outside you and the agent that would show the result is right. It then rewrites the prompt to ask for exactly that, and offers to run it.
 
-**`/narrow` skill** — Cuts a sprawling prompt down to the question that matters. It names the real question, what the professional would refuse to do, what can be cut or deferred, and the smallest result that would settle it. The rewritten prompt ends with a list of everything deferred, so nothing disappears unnoticed. When a task is both too broad and too shallow, run `/narrow` first and then `/deepen`.
+The `/narrow` skill cuts a sprawling prompt down to the question that matters. It names the real question, what the professional would refuse to do, what can be cut or deferred, and the smallest result that would settle the question. The rewritten prompt ends with a list of everything deferred, so you can see every cut. When a task is both too broad and too shallow, run `/narrow` first and then `/deepen`.
 
-**`/prove` skill** — Checks finished work by running checks instead of reviewing it. It splits a result into testable claims and picks a check for each that can fail: running the code, a measurement, a known-answer case or the primary source. It writes each pass condition down before running the check. Each claim comes back passed, failed or unverified, and a check that didn't run never counts as a pass. Fixes are left to you.
+The `/prove` skill tests finished work. It splits a result into testable claims and picks a check for each that can fail: running the code, taking a measurement, a known-answer case or the primary source. It writes down each pass condition before running the check. Each claim comes back passed, failed or unverified, and a check that didn't run never counts as a pass. It leaves fixes to you.
